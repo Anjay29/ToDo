@@ -3,6 +3,7 @@ import userModel from "../models/userModel.js";
 import { createTransport } from 'nodemailer';
 import dotenv from "dotenv";
 dotenv.config();
+
 const sendMail = (email, subject, title, description) => {
     var transporter = createTransport({
         service: 'gmail',
@@ -27,6 +28,7 @@ const sendMail = (email, subject, title, description) => {
         }
     });
 }
+
 const addTask = async (req, res) => {
     const { title, description } = req.body;
     const userId = req.user.id;
@@ -44,6 +46,7 @@ const addTask = async (req, res) => {
         }
         )
 }
+
 const removeTask = (req, res) => {
     const { id } = req.body;
     console.log("id: ", id);
